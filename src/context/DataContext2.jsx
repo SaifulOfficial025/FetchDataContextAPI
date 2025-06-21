@@ -1,12 +1,15 @@
 import React, { createContext, useState, useEffect } from 'react';
 
-export const DataContext = createContext();
+// Create the context
+export const DataContext2 = createContext();
 
-export const DataProvider = ({ children }) => {
+// Create the provider component
+export const DataProvider2 = ({ children }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const API_URL = "https://6851d70b8612b47a2c0b6424.mockapi.io/blog";
+//   const API_URL = "https://6851d70b8612b47a2c0b6424.mockapi.io/blog";
+  const API_URL = "https://68549c9c6a6ef0ed662f90d7.mockapi.io/User";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -55,6 +58,7 @@ export const DataProvider = ({ children }) => {
     }
   };
 
+
   const deletePost = async (id) => {
     try {
       alert('Are you sure to delete this post?') 
@@ -67,10 +71,9 @@ export const DataProvider = ({ children }) => {
     }
   };
 
-
   return (
-    <DataContext.Provider value={{ data, loading, addPost, updatePost, deletePost }}>
+    <DataContext2.Provider value={{ data, loading, addPost, updatePost, deletePost }}>
       {children}
-    </DataContext.Provider>
+    </DataContext2.Provider>
   );
 };
