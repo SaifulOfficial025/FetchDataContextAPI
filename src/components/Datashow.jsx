@@ -102,6 +102,20 @@ function Data1() {
               >
                 {isEdit ? '✅ Update Post' : '➕ Add Post'}
               </button>
+              {isEdit && (
+    <button
+      type="button"
+      className="mt-5 w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-md font-semibold transition duration-200 text-lg"
+      onClick={() => {
+        setIsEdit(false);
+        setEditId(null);
+        setTitle('');
+        setBody('');
+      }}
+    >
+      ❌ Cancel Edit
+    </button>
+  )}
             </div>
           </form>
         </div>
@@ -123,6 +137,8 @@ function Data1() {
               >
                 Edit
               </button>
+
+
               <button 
               onClick={() =>  deletePost(item.id)}
               className="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600"
